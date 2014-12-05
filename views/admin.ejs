@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myAdmin">
+<head>
+    <% include layout/layout_meta.ejs %>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet/less" type="text/css"  href='../public/less/admin.less'/>
+    <script type="text/javascript" src="../bower_components/less/dist/less-1.7.4.min.js"></script>
+
+</head>
+<body>
+    <% include layout/layout_pagetop.ejs %>
+    <% include layout/layout_sidemenu.ejs %>
+    <% include layout/layout_bottom.ejs %>
+    <!--页面所需js -->
+    <script type="text/javascript" src="../bower_components/angular-ui/build/angular-ui.min.js"></script>
+    <script src="../bower_components/angular-ui/templates/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script type="text/javascript" src="../public/javascripts/modules/admin.js"></script>
+    <script type="text/javascript" src="../public/javascripts/controllers/admin/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<div class="sidebar animate-show"  ng-show="showSideBar">
+    <div class="header">
+        <div class="brand-title">
+            <form class="pure-form pure-g">
+                <input type="text" class="pure-input-rounded pure-u-3-4" placeholder="输入你想找的商品">
+                <div class="pure-u-1-4 button-search" href="#"><i class="fa fa-search"></i></div>
+            </form>
+        </div>
+        <div class="label-head pure-g">
+            <label class="pure-u-1-3">商品</label>
+            <label class="pure-u-1-3">买入</label>
+            <label class="pure-u-1-3">卖出</label>
+        </div>
+        <section ng-controller="GroupCtrl">
+            <div class="group-block" ng-repeat="group in groups"  is-open="group.openStatus" >
+                <div class="group-head"  ng-click="group.openStatus=!group.openStatus">{{group.title}}<i class="pull-right fa" ng-class="{'fa-caret-down': group.openStatus, 'fa-caret-right': !group.openStatus}"></i></div>
+                <ul class="group-list animate-show" ng-show="group.openStatus">
+                    <li class=" " ng-repeat="symbol in symbolGroup|filter:{groupType:group.groupType}">
+                        <a href="" class="pure-g">
+                            <span class="pure-u-1-3" id="{{symbol.Symbol}}" data-value="{{symbol.value}}">{{symbol.Symbol}}</span>
+                            <span class="pure-u-1-3" ng-class="{'clr_up':symbol.oldBid=='lt', 'clr_dn':symbol.oldBid=='gt', 'clr_def':symbol.oldBid=='eq'}">{{symbol.price_bid|number:5}}</span>
+                            <span class="pure-u-1-3" ng-class="{'clr_up':symbol.oldAsk=='lt', 'clr_dn':symbol.oldAsk=='gt', 'clr_def':symbol.oldAsk=='eq'}">{{symbol.price_ask|number:5}}</span>
+                        </a>
+                    </li>
+                    <li class=" " ng-repeat="symbol in symbolGroup|filter:{fav:'true'}" ng-if="group.groupType==1">
+                        <a href="" class="pure-g">
+                            <span class="pure-u-1-3" id="{{symbol.Symbol}}_fav" data-value="{{symbol.value}}">{{symbol.Symbol}}</span>
+                            <span class="pure-u-1-3" ng-class="{'clr_up':symbol.oldBid=='lt', 'clr_dn':symbol.oldBid=='gt', 'clr_def':symbol.oldBid=='eq'}">{{symbol.price_bid|number:5}}</span>
+                            <span class="pure-u-1-3" ng-class="{'clr_up':symbol.oldAsk=='lt', 'clr_dn':symbol.oldAsk=='gt', 'clr_def':symbol.oldAsk=='eq'}">{{symbol.price_ask|number:5}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="sideBar_hide" >
+        <i class="fa fa-bars" ng-click="toggleSideBar();"></i>
+    </div>
+</div>

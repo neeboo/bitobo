@@ -1,0 +1,20 @@
+<section class="navbar navbar-default sidebar">
+    <div ng-controller="AccordionCtrl">
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                <accordion-heading>首页</accordion-heading>
+                <a href="#" ng-click="setFalse();">首页</a>
+            </accordion-group>
+            <accordion-group ng-repeat="group in groups" ng-class="group.context" is-open="group.openStatus">
+                <accordion-heading>
+                    {{group.title}}<i class="pull-right fa" ng-class="{'fa-caret-down': group.openStatus, 'fa-caret-right': !group.openStatus}"></i>
+                </accordion-heading>
+                <ul class="nav nav-pills nav-stacked" role="tablist">
+                    <li ng-repeat="content in group.contents" ng-class="{'active':content.active,'':!content.active}">
+                        <a href="{{content.link}}" ng-click="setFalse();content.active=true;">{{content.name}}</a>
+                    </li>
+                </ul>
+            </accordion-group>
+        </accordion>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+@import "mixin.less";
+
+/*---------------------------*/
+
+.deckgrid {
+  margin:20px auto;
+  padding:30px;
+  width:@deckgrid_width;
+}
+
+.deckgrid[deckgrid]::before {
+  content: '3 .column.size-1-3';
+  font-size: 0;
+  visibility:hidden;
+}
+
+.deckgrid .column {
+  float:left;
+}
+.deckgrid .deckgrid-block{
+  padding:0 15px;
+}
+.content-block {
+  border:1px solid rgba(0, 0, 0, .15);
+  border-radius:3px;
+  margin:0 20px 20px 0;
+  position:relative;
+  min-height:200px;
+  background-color: @contentBlock_bg;
+  overflow: hidden;
+}
+
+.content-block .content-block-index {
+  background:@contentBlock_bg;
+  color:#fff;
+  position:absolute;
+  height:100%;
+  text-align:center;
+  width:100%;
+}
+
+.content-block .content-block-index p:first-child {
+  margin-top:10px;
+}
+
+.content-block .content-block-wrapper {
+  min-height:60px;
+}
+
+.content-block .content-block-description {
+  padding:15px;
+}
+.content-block img{
+  background:url('../../public/images/common/spinner.gif') no-repeat center center;
+}
+
+
+/*.deckgrid .column.size-1-5 {
+  width:200px;
+}
+
+.deckgrid .column.size-1-4 {
+  width:200px;
+}*/
+
+.deckgrid .column.size-1-3 {
+  width:33.3%;
+}
+
+.deckgrid .column.size-1-2 {
+  width:50%;
+}
+
+.deckgrid .column.size-1-1 {
+  width:100%;
+}
+
+@media screen and (max-width: @screen-width) {
+  .deckgrid {
+    width:(@deckgrid_width)-@deckgrid_step;
+  }
+
+  .deckgrid[deckgrid]::before {
+    content: '2 .column.size-1-2';
+  }
+}
+
+@media screen and (max-width: @screen-width-mid) {
+  .deckgrid {
+    width:(@deckgrid_width)-2*@deckgrid_step;
+  }
+
+  .deckgrid[deckgrid]::before {
+    content: '1 .column.size-1-1';
+  }
+}

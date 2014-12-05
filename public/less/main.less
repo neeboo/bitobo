@@ -1,0 +1,41 @@
+@import "mixin.less";
+body{
+  background-color: @main_content_bg;
+}
+.wrapper{
+  width:100%;
+}
+ul,ul li{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+.layout_right{
+  margin-left:@main_sideBar_width;
+  height:100%;
+  position: relative;
+  background-color: @main_content_bg;
+  &.hide_sideBar{
+    margin-left:0;
+    header{
+      left:0;
+      width:100%;
+    }
+  }
+}
+header{
+  min-width:1200px;
+  width:calc(~"100% - @{main_sideBar_width}");
+  position: fixed;
+  top:0;
+  left:@main_sideBar_width;
+  z-index: 999;
+}
+
+section.w-content{
+  padding-top: 50px;
+  zoom: 1;
+  float: left;
+  width: 100%;
+}
+

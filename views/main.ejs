@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myMain">
+<head>
+    <% include layout/layout_meta.ejs %>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'/>
+    <link rel='stylesheet' href='../bower_components/pure/pure-min.css'/>
+    <link rel='stylesheet' href='../bower_components/pure/grids-responsive-min.css'/>
+    <link rel="stylesheet/less" type="text/css"  href='../public/less/main.less'/>
+    <link rel="stylesheet/less" type="text/css"  href='../public/less/header.less'/>
+    <link rel="stylesheet/less" type="text/css"  href='../public/less/sidebar.less'/>
+    <link rel="stylesheet/less" type="text/css"  href='../public/less/chart.less'/>
+    <link rel="stylesheet/less" type="text/css"  href='../public/less/content-block.less'/>
+    <script type="text/javascript" src="../bower_components/less/dist/less-1.7.4.min.js"></script>
+</head>
+<body>
+<div class="wrapper" ng-controller="sidebarCtrl">
+    <section class="layout_right" ng-class="{'hide_sideBar':!showSideBar}">
+        <% include layout/layout_topmenu.ejs %>
+        <div ng-view></div>
+    </section>
+    <% include layout/layout_sidepanel_price.ejs %>
+</div>
+<% include layout/layout_bottom.ejs %>
+<script type="text/javascript" src="../public/javascripts/modules/main.js"></script>
+<script type="text/javascript" src="../public/javascripts/controllers/main/main.js"></script>
+</body>
+</html>

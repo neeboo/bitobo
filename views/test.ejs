@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="ftitApp">
+<head>
+    <% include layout/layout_meta.ejs %>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<!-- 主要内容区域 -->
+<div class="row main-content">
+    <div class="col-md-9">
+
+        <!-- 联系我们表单区域 -->
+        <form method="post" role="form" name="createContactForm" ng-controller="ContactCreateController">
+            <!-- UserName 您的称呼 -->
+            <div class="form-group has-feedback" ng-class="{'has-success' : !createContactForm.UserName.$pristine && createContactForm.UserName.$valid, 'has-error' : !createContactForm.UserName.$pristine && createContactForm.UserName.$invalid }">
+                <label for="UserName">您的称呼*</label>
+                <input type="text" class="form-control" ng-model="userName" name="UserName" autofocus="" required ng-maxlength=30>
+                <div ng-show="!createContactForm.UserName.$pristine && createContactForm.UserName.$valid">
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                </div>
+                <div ng-show="!createContactForm.UserName.$pristine && createContactForm.UserName.$invalid">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+            <!-- UserMail 邮箱地址 -->
+            <div class="form-group has-feedback" ng-class="{'has-success' : !createContactForm.UserMail.$pristine && createContactForm.UserMail.$valid, 'has-error' : !createContactForm.UserMail.$pristine && createContactForm.UserMail.$invalid }">
+                <label for="UserMail">邮箱地址*</label>
+                <input type="email" class="form-control" ng-model="userMail" name="UserMail" required ng-maxlength=30>
+                <div ng-show="!createContactForm.UserMail.$pristine && createContactForm.UserMail.$valid">
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                </div>
+                <div ng-show="!createContactForm.UserMail.$pristine && createContactForm.UserMail.$invalid">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+            <!-- Subject 主题 -->
+            <div class="form-group has-feedback" ng-class="{'has-success' : !createContactForm.Subject.$pristine && createContactForm.Subject.$valid, 'has-error' : !createContactForm.Subject.$pristine && createContactForm.Subject.$invalid }">
+                <label for="Subject">主题*</label>
+                <input type="text" class="form-control" ng-model="subject" name="Subject" required ng-maxlength=100>
+                <div ng-show="!createContactForm.Subject.$pristine && createContactForm.Subject.$valid">
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                </div>
+                <div ng-show="!createContactForm.Subject.$pristine && createContactForm.Subject.$invalid">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+            <!-- Content 内容 -->
+            <div class="form-group has-feedback" ng-class="{'has-success' : !createContactForm.Content.$pristine && createContactForm.Content.$valid, 'has-error' : !createContactForm.Content.$pristine && createContactForm.Content.$invalid }">
+                <label for="Content">内容*</label>
+                <textarea cols="4" rows="5" class="form-control" ng-model="content" name="Content" required ng-maxlength=1000></textarea>
+                <div ng-show="!createContactForm.Content.$pristine && createContactForm.Content.$valid">
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                </div>
+                <div ng-show="!createContactForm.Content.$pristine && createContactForm.Content.$invalid">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+            <!-- 提交按钮 -->
+            <div class="form-group">
+                <div ng-show="createContactForm.$valid">
+                    <input type="button"  onsubmit="submit();" value="发布" ng-disabled='!createContactForm.$valid' />
+                </div>
+                <div ng-show="!createContactForm.$valid">
+                    <p>不可用</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<% include layout/layout_bottom.ejs %>
+<!--页面所需js -->
+<script type="text/javascript" src="../bower_components/angular-ui/build/angular-ui.min.js"></script>
+<script src="../bower_components/angular-ui/templates/ui-bootstrap-tpls-0.11.0.min.js"></script>
+<script type="text/javascript" src="../public/javascripts/modules/test.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+@import "mixin.less";
+
+.pure-menu{
+  width:100%;
+  background-color:@main_topMenu_defBg;
+  >ul{
+    width:100%;
+  }
+  border-bottom:1px solid #dddddd !important;
+}
+.pure-menu .pure-menu-heading{
+  font-size:32px;
+  color:@main_topMenu_selected_clr;
+  font-weight:bold;
+}
+.pure-menu li a {
+  &:hover{
+    background:@main_topMenu_hover_bg;
+    color:@main_topMenu_hover_clr;
+/*    font-size: @main_topMenu_hover_fz;*/
+  }
+  &.right-icon{
+    font-size:20px;
+  }
+}
+.pure-menu .pure-menu-selected a {
+  color: @main_topMenu_selected_clr;
+  background:@main_topMenu_selected_bg;
+  font-weight:bold;
+/*  font-size: @main_topMenu_selected_fz;*/
+  &:hover{
+    color: @main_topMenu_selected_clr;
+    background:@main_topMenu_selected_bg;
+/*    font-size: @main_topMenu_selected_fz;*/
+  }
+}
+
+
+
