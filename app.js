@@ -10,9 +10,9 @@ var users = require('./routes/users');
 var admin = require('./routes/admin');
 var test = require('./routes/test');
 var main = require('./routes/main');
-/*var chart = require('./routes/chart');*/
+var chart = require('./routes/chart');
 var test_mobile = require('./routes/test_mobile');
-var newversion = require('./routes/newversion');
+/*var newversion = require('./routes/newversion');*/
 
 var app = express();
 
@@ -35,8 +35,8 @@ app.use('/m_admin',admin);
 app.use('/test',test);
 app.use('/',main);
 app.use('/test_mobile',test_mobile);
-app.use('/newversion',newversion);
-/*app.use('/chart',chart);*/
+/*app.use('/newversion',newversion);*/
+app.use('/chart',chart);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -74,8 +74,8 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.set('port', process.env.PORT || 3000);
+// app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-    console.log('Express服务器启动了！监听' + server.address().port+'端口');
-});
+// var server = app.listen(app.get('port'), function() {
+//     console.log('Express服务器启动了！监听' + server.address().port+'端口');
+// });
